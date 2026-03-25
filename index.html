@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC Project | B.Sc AIML</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { background-color: #3498db; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; }
+        button:hover { background-color: #2980b9; }
+        #status { margin-top: 15px; padding: 10px; display: none; border-radius: 6px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Database Portal</h2>
+    <p><strong>Course:</strong> Skill Enhancement (SEC)</p>
+    
+    <label>Student Name:</label>
+    <input type="text" id="studentName" placeholder="Enter your name">
+    
+    <label>USN / Roll No:</label>
+    <input type="text" id="studentUSN" placeholder="Enter USN">
+
+    <label>Project Details:</label>
+    <textarea id="details" rows="3" placeholder="Describe your AIML interest"></textarea>
+
+    <button onclick="handleSubmit()">Submit to MongoDB</button>
+
+    <div id="status"></div>
+</div>
+
+<script>
+    // SIMULATED BACKEND LOGIC
+    function handleSubmit() {
+        const name = document.getElementById('studentName').value;
+        const usn = document.getElementById('studentUSN').value;
+        const statusDiv = document.getElementById('status');
+
+        if(name === "" || usn === "") {
+            statusDiv.style.display = "block";
+            statusDiv.style.backgroundColor = "#ff7675";
+            statusDiv.innerText = "Error: Please fill all fields!";
+            return;
+        }
+
+        // Logic: Simulating a POST request to a Database
+        console.log("Connecting to MongoDB Cluster...");
+        console.log("Sending Data:", { name, usn });
+
+        statusDiv.style.display = "block";
+        statusDiv.style.backgroundColor = "#55efc4";
+        statusDiv.innerHTML = "<strong>Success!</strong> Data sent to MongoDB Atlas.<br>Status: 200 OK";
+        
+        // Clearing fields to show the 'Database' accepted the entry
+        document.getElementById('studentName').value = "";
+        document.getElementById('studentUSN').value = "";
+    }
+</script>
+
+</body>
+</html>
