@@ -1,0 +1,12 @@
+{
+  "database_name": "SEC_Student_DB",
+  "collection": "users",
+  "records": [
+    {
+      "id": 1,
+      "name": "Your Name",
+      "course": "B.Sc AIML",
+      "status": "Submitted"
+    }
+  ]
+}
